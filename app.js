@@ -1,19 +1,81 @@
 const FlashWordArgs = {
     data() {
         return {
-            words: [],
+            words: [{
+                word_a: "Chien",
+                word_b: "dog",
+                hint: "Animal",
+                showHint: false,
+                answer: "",
+                correct: false,
+                classValidity: ""
+            }, {
+                word_a: "Emploi",
+                word_b: "job",
+                hint: "We do it to earn money",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Ciel",
+                word_b: "sky",
+                hint: "Above us",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Pomme",
+                word_b: "apple",
+                hint: "Fruit",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Chanter",
+                word_b: "sing",
+                hint: "You do it in the shower",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Maison",
+                word_b: "home",
+                hint: "H... sweet ...",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Pompier",
+                word_b: "firefighter",
+                hint: "Job saving lives",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Composante",
+                word_b: "component",
+                hint: "A piece of something",
+                showHint: false,
+                answer: "",
+                correct: false
+            }, {
+                word_a: "Ordinateur",
+                word_b: "computer",
+                hint: "you're using it right now",
+                showHint: false,
+                answer: "",
+                correct: false
+            }],
             wordsByDifficulty: [],
             currentDifficulty: '',
             correctAnswersCount: 0,
             allAnswersCorrect: false
+            // wordCount: this.words.length
             // We cant use this.words.length in data() because it is not defined yet.
             // We cant reference other data properties when setting data properties.
             // we have to use a computed property instead. because computed properties are evaluated after data properties.
-            // wordCount: this.words.length
+
         };
-    },
-    created() {
-        this.loadWords();
     },
     computed: {
         shuffledWords() {
@@ -64,6 +126,7 @@ const FlashWordArgs = {
         },
 
         setDifficulty({target: {dataset: {difficulty}}}) {
+            
             // Reset the game if the user changes the difficulty
             this.reset()
             this.currentDifficulty = difficulty;
@@ -79,11 +142,7 @@ const FlashWordArgs = {
                     this.wordsByDifficulty = this.words.filter(word => word.word_b.length >= 7);
                     break;
             }
-        },
-        async loadWords() {
-            const resp = await fetch('words.json') // Adjust the path as needed
-            this.words = await resp.json(); // Assign the fetched JSON data to the Vue.js data property
-        },
+        }
     },
 }
 
