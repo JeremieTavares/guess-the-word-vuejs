@@ -34,7 +34,7 @@ const FlashWordArgs = {
     },
     methods: {
         onKeyupValidateAnswer(word) {
-            word.correct = (word.word_b === word.answer);
+            word.correct = (word.word_b === word.answer.toLowerCase());
             word.classValidity = (word.correct ? 'correct' : 'incorrect');
             if (word.correct) this.correctAnswersCount++;
         },
