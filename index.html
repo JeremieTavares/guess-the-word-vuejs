@@ -37,8 +37,7 @@
             <div v-for="word in shuffledWords" :class="[word.classValidity]" class="card">
                 <div class="position-relative">
                     <span class="word">{{ word.word_a }}</span>
-                    <button class="btn btn-sm btn-info hint" @mouseenter="toggleShowHint(word)"
-                            @mouseleave="toggleShowHint(word)">
+                    <button class="btn btn-sm btn-info hint" @click="toggleShowHint(word)">
                         <span v-if="word.showHint">{{ word.hint }}</span>
                         <span v-else>hint</span>
                     </button>
