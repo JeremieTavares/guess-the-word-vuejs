@@ -13,7 +13,7 @@
     <div v-cloak id="app">
         <h1>Guess the word in English !</h1>
 
-        <h2 v-if="currentDifficulty === ''">
+        <h2 v-if="!currentDifficulty">
             Please choose a difficulty
         </h2>
         <h2 v-else>
