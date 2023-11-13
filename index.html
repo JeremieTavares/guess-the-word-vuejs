@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="./style.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="./app.js"></script>
+</head>
+<body>
+
+    <div v-cloak id="app">
+        <h1>Guess the word in English !</h1>
+
+        <h2 v-if="currentDifficulty === ''">
+            Please choose a difficulty
+        </h2>
+        <h2 v-else>
+            you have chosen <span :class="currentDifficulty">{{ currentDifficulty }}</span>
+        </h2>
+
+        <div class="d-flex justify-content-center gap-10" @click="setDifficulty">
+            <button class="btn btn-success" data-difficulty="easy">Easy</button>
+            <button class="btn btn-warning" data-difficulty="medium">Medium</button>
+            <button class="btn btn-danger" data-difficulty="hard">Hard</button>
+        </div>
+
+
+        <div v-show="wordCount">
+            <p v-if="!allAnswersCorrect" id="correctCount">
+                You have answered {{ correctAnswersCount }} out of {{ wordCount }}
+            </p>
+            <p v-else id="completed">You have answered all the answer ! Congratulations</p>
+        </div>
+        <div id="cards">
+            <div v-for="word in shuffledWords" :class="[word.classValidity]" class="card">
+                <div class="position-relative">
+                    <span class="word">{{ word.word_a }}</span>
+                    <button class="btn btn-sm btn-info hint" @mouseenter="toggleShowHint(word)"
+                            @mouseleave="toggleShowHint(word)">
+                        <span v-if="word.showHint">{{ word.hint }}</span>
+                        <span v-else>hint</span>
+                    </button>
+                </div>
+
+                <input v-if="!word.correct" v-model="word.answer" type="text"
+                       @input="onInputRemoveClassValidity(word)"
+                       @keyup.enter="onKeyupValidateAnswer(word)">
+                <p v-else class="correctAnswer">{{ word.word_b }}</p>
+            </div>
+        </div>
+
+        <div v-show="wordCount" class="d-flex justify-content-center gap-10 mt-50">
+            <button class="btn btn-primary" @click="reset">Reset All</button>
+        </div>
+    </div>
+</body>
+</html>

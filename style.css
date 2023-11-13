@@ -1,0 +1,201 @@
+[v-cloak] {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: black;
+    margin-top: 60px;
+}
+
+h1 + p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#cards {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 300px));
+    grid-gap: 25px;
+    margin: 0 10px;
+}
+
+.card {
+    background-color: #E8F0FF;
+    border-radius: 5px;
+    padding: 10px 0;
+    font-size: 25px;
+}
+
+.card span {
+    display: block;
+    width: 100%;
+}
+
+input[type=text] {
+    border: 0;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 90%;
+}
+
+.word {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.correctAnswer {
+    padding: 0;
+    margin: 0;
+}
+
+.correct {
+    color: #0f5132;
+    background-color: #d1e7dd;
+}
+
+.incorrect {
+    color: #ffffff;
+    background-color: #ff6e6e;
+}
+
+#correctCount {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#completed {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0f5132;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #bd2130;
+}
+
+.easy {
+    color: #28a745;
+}
+
+.medium {
+    color: #f4b500;
+}
+
+.hard {
+    color: #dc3545;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.hint {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    #cards {
+        grid-template-columns: 1fr;
+    }
+}
